@@ -18,11 +18,20 @@ public class AutocompleteTest {
 
   @Test
   public void autocompleteShowsUsStates() {
-    AutocompletePage.fill("V");
-    AutocompletePage.autocompleteBox.shouldHave(text("Virginia"))
+    AutocompletePage autocompletePage = new AutocompletePage();
+    autocompletePage.fill("V");
+    autocompletePage.autocompleteBox.shouldHave(text("Virginia"))
             .shouldHave(text("Vermont"))
             .shouldNotHave(text("Alaska"));
-    AutocompletePage.selectFromAutocompleteBox("irginia");
-    AutocompletePage.stateInput.shouldHave(value("Virginia"));
+    autocompletePage.selectFromAutocompleteBox("irginia");
+    autocompletePage.stateInput.shouldHave(value("Virginia"));
+  }
+
+  @Test
+  public void autocompleteCalifornia() {
+    AutocompletePage autocompletePage = new AutocompletePage();
+    autocompletePage.fill("Calif");
+    autocompletePage.selectFromAutocompleteBox("Calif");
+    autocompletePage.stateInput.shouldHave(value("California"));
   }
 }

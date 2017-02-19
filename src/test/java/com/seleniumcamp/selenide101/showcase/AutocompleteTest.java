@@ -1,5 +1,6 @@
 package com.seleniumcamp.selenide101.showcase;
 
+import com.codeborne.selenide.*;
 import org.junit.*;
 
 import static com.codeborne.selenide.Condition.*;
@@ -11,15 +12,21 @@ import static com.codeborne.selenide.Selenide.*;
  */
 public class AutocompleteTest {
 
-  @Test
-  public void autocompleteShowsUsStates(){
+  @BeforeClass
+  public static void openSite() {
     open("/demo/autocomplete");
-    $("md-autocomplete[placeholder*='US state'] input").setValue("V");
-    $(".md-autocomplete-suggestions").shouldHave(text("Virginia"))
+  }
+
+  @Test
+  public void autocompleteShowsUsStates() {
+    SelenideElement stateInput = $("md-autocomplete[placeholder*='US state'] input");
+    SelenideElement autocompleteBox = $(".md-autocomplete-suggestions");
+
+    stateInput.setValue("V");
+    autocompleteBox.shouldHave(text("Virginia"))
             .shouldHave(text("Vermont"))
             .shouldNotHave(text("Alaska"));
-    $(".md-autocomplete-suggestions").find(byText("irginia")).click();
-    $("md-autocomplete[placeholder*='US state'] input").shouldHave(value("Virginia"));
-
+    autocompleteBox.find(byText("irginia")).click();
+    stateInput.shouldHave(attribute("value", "Virginia"));
   }
 }

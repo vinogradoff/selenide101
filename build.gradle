@@ -1,0 +1,23 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    testCompile 'com.codeborne:selenide:4.3'
+}
+
+tasks.withType(Test) {
+    systemProperties = System.properties
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "full"
+        }
+    }
+
+    outputs.upToDateWhen { false }
+}

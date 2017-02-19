@@ -1,15 +1,25 @@
 package com.seleniumcamp.selenide101.showcase;
 
+import com.codeborne.selenide.*;
 import org.junit.*;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
+import static java.lang.System.*;
 
 /**
  * @author Alexei Vinogradov
  */
 public class AutocompleteTest {
+
+  @BeforeClass
+  public static void setup() {
+    Configuration.timeout = 5000;
+    Configuration.browser = "chrome";
+    setProperty("webdriver.chrome.driver", "/Users/Shared/selenium/chromedriver-2.27");
+    Configuration.startMaximized = false;
+  }
 
   @Test
   public void autocompleteShowsUsStates(){

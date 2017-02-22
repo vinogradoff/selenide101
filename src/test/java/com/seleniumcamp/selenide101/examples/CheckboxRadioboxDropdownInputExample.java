@@ -64,9 +64,13 @@ public class CheckboxRadioboxDropdownInputExample {
 
     //fill in with JavaScript
     Configuration.fastSetValue = true;
+    $("").setValue("abc");
+    $("").shouldHave(value("abc"));
 
     //default. Traditional sendKeys of Selenium
-    Configuration.fastSetValue = true;
+    Configuration.fastSetValue = false;
+    $("").shouldHave(value("abc"));
+    $("").setValue("abc");/**/
 
 
   }

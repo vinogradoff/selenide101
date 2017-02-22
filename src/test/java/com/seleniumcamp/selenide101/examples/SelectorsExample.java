@@ -43,7 +43,7 @@ public class SelectorsExample {
     $(withText("asic Usage")).click(); //finds partial occurance
     $(byAttribute("md-svg-src", "img/icons/android.svg")).click();
     $(by("md-svg-src", "img/icons/android.svg")).click(); //the same as above
-    $("div", 3); // third <div> will be selected
+    $("div", 2); // index starts with 0, the third <div> will be selected
     $(byTitle("my_title"));
     $(byValue("my_value"));
   }

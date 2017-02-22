@@ -1,5 +1,6 @@
 package com.seleniumcamp.selenide101.examples;
 
+import com.codeborne.selenide.*;
 import org.junit.*;
 
 import static com.codeborne.selenide.Condition.*;
@@ -18,6 +19,9 @@ public class SelectorsExample {
 
   @Test
   public void seleniumSelectors() {
+
+    //Elements are SelenideElement and WebElement (Selenium class)
+    SelenideElement element = $("div");
 
     $("xyz");  // no error it doesn't search for anything!
 

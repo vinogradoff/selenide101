@@ -10,6 +10,11 @@ import static com.codeborne.selenide.Selenide.*;
  */
 public class MouseActionsExample {
 
+  @BeforeClass
+  public static void openDemo() {
+    open("smthing");
+  }
+
   @Test
   public void basicActions() {
     $("").click();

@@ -1,5 +1,6 @@
 package com.seleniumcamp.selenide101.examples;
 
+import com.codeborne.selenide.*;
 import org.junit.*;
 
 import java.io.*;
@@ -11,27 +12,31 @@ import static com.codeborne.selenide.Selenide.*;
  */
 public class FileOperationsExample {
 
-  @BeforeClass
-  public static void openDemo() {
-    open("smthing");
-  }
 
   @Test
   public void downloadFile() throws FileNotFoundException {
 
-    //FileNotFoundException could be thrown
+    open("http://the-internet.herokuapp.com/download");
+
+    //FileNotFoundException is thrown if server returns 40x on download
     // works for remote WebDriver as well!
-    File file = $("file").download();
+    File file = $(Selectors.byText("some-file.txt")).download();
 
   }
 
   @Test
   public void uploadFile() {
+    open("http://the-internet.herokuapp.com/upload");
 
-    // works for remote driver as well
-    File file = new File("readme.txt");
-    $("file").uploadFile(file);
-    $("file").uploadFromClasspath("readme.txt");
+    // works for remote driver as well!
+    File file = new File("src/test/resources/readme.txt");
+    $("#file-upload").uploadFile(file);
+
+    // classpath - typically resources folder in maven/gradle source structure
+    $("#file-upload").uploadFromClasspath("readme.txt");
+
+    // don't forget to submit ;-)
+    $("#file-submit").click();
 
   }
 }

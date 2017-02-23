@@ -1,40 +1,45 @@
 package com.seleniumcamp.selenide101.examples;
 
+import com.codeborne.selenide.*;
+import com.codeborne.selenide.ex.*;
 import org.junit.*;
 
 import java.util.*;
 
 import static com.codeborne.selenide.Selenide.*;
+import static org.junit.Assert.*;
 
 /**
  * @author Alexei Vinogradov
  */
 public class JavaScriptExample {
 
-  @BeforeClass
-  public static void openDemo() {
-    open("smthing");
-  }
-
   @Test
   public void javascriptUsage() {
 
+    open("https://the-internet.herokuapp.com/javascript_error");
     //Selenide.*
 
-    // without arguments and return
-    executeJavaScript("alert('hello world')");
+    // without arguments
+    executeJavaScript("alert('selenide')");
+    Selenide.confirm(); //close alert dialog
     //with arguments
-    executeJavaScript("alert('hello world')", "abc", 12);
+    executeJavaScript("alert(arguments[0]+arguments[1])", "abc", 12);
+    Selenide.confirm();
     //with return value
-    String response = executeJavaScript("alert('hello world')", "abc", 12);
+    long fortytwo = executeJavaScript("return arguments[0]*arguments[1];", 6, 7);
+    assertEquals(42, fortytwo);
 
-    // Errors asserting
-    executeJavaScript("function");
+  }
+
+  @Test(expected = JavaScriptErrorsFound.class)
+  public void javascriptErrors() {
+    open("https://the-internet.herokuapp.com/javascript_error");
     List<String> jsErrors = getJavascriptErrors();
     System.out.println(jsErrors);
 
-    // assert no errors
+    // Asserts, no JS Errors
+    // Exception, if there are errors
     assertNoJavascriptErrors();
-
   }
 }

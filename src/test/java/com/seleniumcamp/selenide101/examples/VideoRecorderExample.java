@@ -1,18 +1,13 @@
 package com.seleniumcamp.selenide101.examples;
 
-import com.automation.remarks.junit.*;
-import com.automation.remarks.video.annotations.*;
-import org.junit.*;
-
-import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.*;
+//import com.automation.remarks.junit.*;
+//import com.automation.remarks.video.annotations.*;
 
 /**
  * @author Alexei Vinogradov
  */
 public class VideoRecorderExample {
-
-  // from http://github.com/SergeyPirogov/video-recorder-java
+/*  // from http://github.com/SergeyPirogov/video-recorder-java
   // see documentation for options available
   @Rule
   public VideoRule videoRule = new VideoRule();
@@ -34,6 +29,6 @@ public class VideoRecorderExample {
     $("[type=checkbox]", 1).shouldNotBe(checked);
 
 
-  }
+  }*/
 
 }

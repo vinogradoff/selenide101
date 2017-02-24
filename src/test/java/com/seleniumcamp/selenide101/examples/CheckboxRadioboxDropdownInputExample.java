@@ -61,16 +61,16 @@ public class CheckboxRadioboxDropdownInputExample {
 
   @Test
   public void input() {
-
+    open("https://the-internet.herokuapp.com/login");
     //fill in with JavaScript
     Configuration.fastSetValue = true;
-    $("").setValue("abc");
-    $("").shouldHave(value("abc"));
+    $("#username").setValue("abc");
+    $("#username").shouldHave(value("abc"));
 
     //default. Traditional sendKeys of Selenium
     Configuration.fastSetValue = false;
-    $("").shouldHave(value("abc"));
-    $("").setValue("abc");/**/
+    $("#username").shouldHave(value("abc"));
+    $("#username").setValue("abc");/**/
 
 
   }

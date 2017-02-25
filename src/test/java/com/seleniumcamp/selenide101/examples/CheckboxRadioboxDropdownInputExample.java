@@ -70,7 +70,7 @@ public class CheckboxRadioboxDropdownInputExample {
     //default. Traditional sendKeys of Selenium
     Configuration.fastSetValue = false;
     $("#username").shouldHave(value("abc"));
-    $("#username").setValue("abc");/**/
+    $("#username").setValue("abc");
 
 
   }

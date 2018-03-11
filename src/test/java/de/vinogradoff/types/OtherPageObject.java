@@ -3,7 +3,7 @@ package de.vinogradoff.types;
 import com.epam.jdi.uitests.web.selenium.elements.common.*;
 import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 
 public class OtherPageObject {
 

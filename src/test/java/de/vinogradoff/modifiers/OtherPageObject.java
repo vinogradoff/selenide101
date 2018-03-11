@@ -1,11 +1,8 @@
 package de.vinogradoff.modifiers;
 
 import com.codeborne.selenide.*;
-import com.epam.jdi.uitests.web.selenium.elements.common.*;
-import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.*;
 
 public class OtherPageObject {
 

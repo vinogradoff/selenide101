@@ -2,7 +2,6 @@ package de.vinogradoff.modifiers;
 
 import com.codeborne.selenide.*;
 
-import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
 public class KISSPageObject {

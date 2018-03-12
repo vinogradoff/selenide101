@@ -6,7 +6,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class KISSPageObject {
 
-  public SelenideElement productName=$("label");
+  public SelenideElement productName=$("#label");
 
   SelenideElement        submitBtn=$("#button");
   SelenideElement        followMe=$("#link");

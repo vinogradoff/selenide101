@@ -9,7 +9,7 @@ public class KISSPageObject {
 
   SelenideElement description=$("#text"),
                   submitBtn=$("#button"),
-                  productName=$("label"),
+                  productName=$("#label"),
                   followMe=$("#link"),
                   passwordField=$("#textfield");
 

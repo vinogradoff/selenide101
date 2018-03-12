@@ -6,7 +6,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class OtherPageObject {
 
-  public SelenideElement    productName=$("label");
+  public SelenideElement    productName=$("#label");
 
   protected SelenideElement submitBtn=$("#button");
   SelenideElement           followMe=$("#link");

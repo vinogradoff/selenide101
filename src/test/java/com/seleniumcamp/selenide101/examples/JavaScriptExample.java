@@ -32,14 +32,4 @@ public class JavaScriptExample {
 
   }
 
-  @Test(expected = JavaScriptErrorsFound.class)
-  public void javascriptErrors() {
-    open("https://the-internet.herokuapp.com/javascript_error");
-    List<String> jsErrors = getJavascriptErrors();
-    System.out.println(jsErrors);
-
-    // Asserts, no JS Errors
-    // Exception, if there are errors
-    assertNoJavascriptErrors();
-  }
 }

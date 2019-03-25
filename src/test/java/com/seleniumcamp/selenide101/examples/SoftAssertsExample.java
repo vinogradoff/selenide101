@@ -18,7 +18,7 @@ public class SoftAssertsExample {
   @Test
   public void input() {
 
-    Configuration.assertionMode = Configuration.AssertionMode.SOFT;
+    Configuration.assertionMode =AssertionMode.SOFT;
 
     open("https://the-internet.herokuapp.com/login");
 
@@ -28,7 +28,7 @@ public class SoftAssertsExample {
     $("#username").shouldHave(value("example"));
     $("#username").setValue("new value");
 
-    Configuration.assertionMode = Configuration.AssertionMode.STRICT;
+    Configuration.assertionMode = AssertionMode.STRICT;
 
   }
 }

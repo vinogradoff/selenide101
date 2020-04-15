@@ -7,8 +7,11 @@ repositories {
 
 dependencies {
     
-    testCompile 'com.codeborne:selenide:5.2.2'
-    testCompile 'com.epam.jdi:jdi-uitest-web:1.1.18'
+    testImplementation 'com.codeborne:selenide:5.10.0'
+    testImplementation ('com.epam.jdi:jdi-uitest-web:1.1.18')
+            {exclude group:'org.seleniumhq.selenium'}
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.0'
 }
 
 tasks.withType(Test) {
@@ -21,6 +24,13 @@ tasks.withType(Test) {
         }
     }
 
-    exclude '**' // don't run THESE tests, they are just building block examples
+
     outputs.upToDateWhen { false }
+}
+test{
+    exclude '**' // don't run THESE tests, they are just building block examples
+}
+task ui_test(type: Test) {
+    systemProperties += System.properties
+    useJUnitPlatform()
 }
